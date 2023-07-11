@@ -1,26 +1,12 @@
 *** Settings ***
 Documentation    HerokuAPP API Tests
 Library    RequestsLibrary
-Library    JSONLibrary
-Library    String
+Library    CustomLib.py
 
 *** Variables ***
 ${baseURL}      https://restful-booker.herokuapp.com
-${token}        token
-${bookingID}    bookingID
-
-*** Keywords ***
-Set Global
-    [Arguments]    ${variable}    ${param}    ${jsonData}
-    ${paramJSON}      Get Value From Json    ${jsonData}    ${param}
-    ${paramString}    Convert Json To String    ${paramJSON}
-    ${paramValue}     Replace String Using Regexp    ${paramString}    \\W    ${EMPTY}
-    
-    IF  '${variable}' == 'token'
-        Set Global Variable    ${token}    ${paramValue}
-    ELSE IF    '${variable}' == 'bookingID'
-        Set Global Variable    ${bookingID}    ${paramValue}
-    END
+${token}    0
+${bookingID}    0
 
 *** Test Cases ***
 Create Token
@@ -28,8 +14,8 @@ Create Token
     ${body}       Create Dictionary    username=admin    password=password123
     Create Session    herokuApp    ${baseURL}    verify=True
     ${response}    POST On Session    herokuApp    /auth    data=${body}
-    Set Global    ${token}    token    ${response.json()}
-    Status Should Be    200    ${response}
+    ${resToken}    Get Token    ${response.json()}
+    Set Global Variable    ${token}     ${resToken}
 
 Create Booking
     [Documentation]    POST
@@ -37,7 +23,8 @@ Create Booking
     ${header}    Create Dictionary    Content-Type=application/json
     Create Session    herokuApp    ${baseURL}    verify=True    headers=${header}
     ${respose}    POST On Session    herokuApp    /booking    data=${body}
-    Set Global    ${bookingID}    bookingid    ${respose.json()}
+    ${resBookingID}     Get BookingID    ${respose.json()}
+    Set Global Variable    ${bookingID}    ${resBookingID}
     Status Should Be    200    ${respose}
 
 Get Booking

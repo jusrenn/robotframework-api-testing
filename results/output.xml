@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.11.0 on darwin)" generated="20221216 02:46:16.281" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.11.0 on darwin)" generated="20230103 14:09:32.283" rpa="false" schemaversion="3">
 <suite id="s1" name="Robotframework-Api-Testing" source="/Users/yusufrenkoglu/Library/Mobile Documents/com~apple~CloudDocs/Projects/IdeaProjects/robotframework-api-testing">
 <suite id="s1-s1" name="HerokuApp" source="/Users/yusufrenkoglu/Library/Mobile Documents/com~apple~CloudDocs/Projects/IdeaProjects/robotframework-api-testing/HerokuApp.robot">
 <test id="s1-s1-t1" name="Create Token" line="26">
@@ -8,16 +8,16 @@
 <arg>username=admin</arg>
 <arg>password=password123</arg>
 <doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221216 02:46:16.461" level="INFO">${body} = {'username': 'admin', 'password': 'password123'}</msg>
-<status status="PASS" starttime="20221216 02:46:16.460" endtime="20221216 02:46:16.467"/>
+<msg timestamp="20230103 14:09:32.514" level="INFO">${body} = {'username': 'admin', 'password': 'password123'}</msg>
+<status status="PASS" starttime="20230103 14:09:32.513" endtime="20230103 14:09:32.514"/>
 </kw>
 <kw name="Create Session" library="RequestsLibrary">
 <arg>herokuApp</arg>
 <arg>${baseURL}</arg>
 <arg>verify=True</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20221216 02:46:16.473" level="INFO">Creating Session using : alias=herokuApp, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<status status="PASS" starttime="20221216 02:46:16.469" endtime="20221216 02:46:16.475"/>
+<msg timestamp="20230103 14:09:32.515" level="INFO">Creating Session using : alias=herokuApp, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20230103 14:09:32.514" endtime="20230103 14:09:32.515"/>
 </kw>
 <kw name="POST On Session" library="RequestsLibrary">
 <var>${response}</var>
@@ -25,18 +25,18 @@
 <arg>/auth</arg>
 <arg>data=${body}</arg>
 <doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20221216 02:46:17.057" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/auth 
+<msg timestamp="20230103 14:09:33.039" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/auth 
  path_url=/auth 
  headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '35', 'Content-Type': 'application/x-www-form-urlencoded'} 
  body=username=admin&amp;password=password123 
  </msg>
-<msg timestamp="20221216 02:46:17.058" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/auth 
+<msg timestamp="20230103 14:09:33.039" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/auth 
  status=200, reason=OK 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '27', 'Etag': 'W/"1b-y5StrmGUA9SmhxnSY+t168KA8Zg"', 'Date': 'Fri, 16 Dec 2022 00:46:16 GMT', 'Via': '1.1 vegur'} 
- body={"token":"911a682a7a2f842"} 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '27', 'Etag': 'W/"1b-bZ7LZZcZLPamXWWTet5mhLy28mA"', 'Date': 'Tue, 03 Jan 2023 12:09:33 GMT', 'Via': '1.1 vegur'} 
+ body={"token":"26004e8a84d21a4"} 
  </msg>
-<msg timestamp="20221216 02:46:17.058" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20221216 02:46:16.481" endtime="20221216 02:46:17.058"/>
+<msg timestamp="20230103 14:09:33.040" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230103 14:09:32.516" endtime="20230103 14:09:33.040"/>
 </kw>
 <kw name="Set Global">
 <arg>${token}</arg>
@@ -47,15 +47,15 @@
 <arg>${jsonData}</arg>
 <arg>${param}</arg>
 <doc>Get Value From JSON using JSONPath</doc>
-<msg timestamp="20221216 02:46:17.104" level="INFO">${paramJSON} = ['911a682a7a2f842']</msg>
-<status status="PASS" starttime="20221216 02:46:17.060" endtime="20221216 02:46:17.104"/>
+<msg timestamp="20230103 14:09:33.081" level="INFO">${paramJSON} = ['26004e8a84d21a4']</msg>
+<status status="PASS" starttime="20230103 14:09:33.042" endtime="20230103 14:09:33.081"/>
 </kw>
 <kw name="Convert Json To String" library="JSONLibrary">
 <var>${paramString}</var>
 <arg>${paramJSON}</arg>
 <doc>Convert JSON object to string</doc>
-<msg timestamp="20221216 02:46:17.105" level="INFO">${paramString} = ["911a682a7a2f842"]</msg>
-<status status="PASS" starttime="20221216 02:46:17.104" endtime="20221216 02:46:17.106"/>
+<msg timestamp="20230103 14:09:33.082" level="INFO">${paramString} = ["26004e8a84d21a4"]</msg>
+<status status="PASS" starttime="20230103 14:09:33.082" endtime="20230103 14:09:33.082"/>
 </kw>
 <kw name="Replace String Using Regexp" library="String">
 <var>${paramValue}</var>
@@ -63,8 +63,8 @@
 <arg>\\W</arg>
 <arg>${EMPTY}</arg>
 <doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20221216 02:46:17.107" level="INFO">${paramValue} = 911a682a7a2f842</msg>
-<status status="PASS" starttime="20221216 02:46:17.106" endtime="20221216 02:46:17.107"/>
+<msg timestamp="20230103 14:09:33.083" level="INFO">${paramValue} = 26004e8a84d21a4</msg>
+<status status="PASS" starttime="20230103 14:09:33.082" endtime="20230103 14:09:33.083"/>
 </kw>
 <if>
 <branch type="IF" condition="'${variable}' == 'token'">
@@ -72,294 +72,47 @@
 <arg>${token}</arg>
 <arg>${paramValue}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20221216 02:46:17.108" level="INFO">${token} = 911a682a7a2f842</msg>
-<status status="PASS" starttime="20221216 02:46:17.107" endtime="20221216 02:46:17.108"/>
+<msg timestamp="20230103 14:09:33.084" level="INFO">${token} = 26004e8a84d21a4</msg>
+<status status="PASS" starttime="20230103 14:09:33.083" endtime="20230103 14:09:33.084"/>
 </kw>
-<status status="PASS" starttime="20221216 02:46:17.107" endtime="20221216 02:46:17.108"/>
+<status status="PASS" starttime="20230103 14:09:33.083" endtime="20230103 14:09:33.084"/>
 </branch>
 <branch type="ELSE IF" condition="'${variable}' == 'bookingID'">
 <kw name="Set Global Variable" library="BuiltIn">
 <arg>${bookingID}</arg>
 <arg>${paramValue}</arg>
 <doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" starttime="20221216 02:46:17.109" endtime="20221216 02:46:17.109"/>
+<status status="NOT RUN" starttime="20230103 14:09:33.085" endtime="20230103 14:09:33.085"/>
 </kw>
-<status status="NOT RUN" starttime="20221216 02:46:17.109" endtime="20221216 02:46:17.109"/>
+<status status="NOT RUN" starttime="20230103 14:09:33.084" endtime="20230103 14:09:33.085"/>
 </branch>
-<status status="PASS" starttime="20221216 02:46:17.107" endtime="20221216 02:46:17.109"/>
+<status status="PASS" starttime="20230103 14:09:33.083" endtime="20230103 14:09:33.085"/>
 </if>
-<status status="PASS" starttime="20221216 02:46:17.058" endtime="20221216 02:46:17.109"/>
+<status status="PASS" starttime="20230103 14:09:33.041" endtime="20230103 14:09:33.085"/>
 </kw>
 <kw name="Status Should Be" library="RequestsLibrary">
 <arg>200</arg>
 <arg>${response}</arg>
 <doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20221216 02:46:17.109" endtime="20221216 02:46:17.112"/>
+<status status="PASS" starttime="20230103 14:09:33.085" endtime="20230103 14:09:33.086"/>
 </kw>
 <doc>POST</doc>
-<status status="PASS" starttime="20221216 02:46:16.459" endtime="20221216 02:46:17.112"/>
-</test>
-<test id="s1-s1-t2" name="Create Booking" line="34">
-<kw name="Set Variable" library="BuiltIn">
-<var>${body}</var>
-<arg>{"firstname" : "Nimi", "lastname" : "Sukunimi", "totalprice" : 1234, "depositpaid" : true, "bookingdates" : {"checkin" : "2022-12-16", "checkout" : "2022-12-30"}, "additionalneeds" : "Breakfast"}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20221216 02:46:17.114" level="INFO">${body} = {"firstname" : "Nimi", "lastname" : "Sukunimi", "totalprice" : 1234, "depositpaid" : true, "bookingdates" : {"checkin" : "2022-12-16", "checkout" : "2022-12-30"}, "additionalneeds" : "Breakfast"}</msg>
-<status status="PASS" starttime="20221216 02:46:17.114" endtime="20221216 02:46:17.114"/>
-</kw>
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${header}</var>
-<arg>Content-Type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221216 02:46:17.115" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20221216 02:46:17.114" endtime="20221216 02:46:17.115"/>
-</kw>
-<kw name="Create Session" library="RequestsLibrary">
-<arg>herokuApp</arg>
-<arg>${baseURL}</arg>
-<arg>verify=True</arg>
-<arg>headers=${header}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20221216 02:46:17.116" level="INFO">Creating Session using : alias=herokuApp, url=https://restful-booker.herokuapp.com, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<status status="PASS" starttime="20221216 02:46:17.115" endtime="20221216 02:46:17.116"/>
-</kw>
-<kw name="POST On Session" library="RequestsLibrary">
-<var>${respose}</var>
-<arg>herokuApp</arg>
-<arg>/booking</arg>
-<arg>data=${body}</arg>
-<doc>Sends a POST request on a previously created HTTP Session.</doc>
-<msg timestamp="20221216 02:46:17.625" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/booking 
- path_url=/booking 
- headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Content-Length': '195'} 
- body={"firstname" : "Nimi", "lastname" : "Sukunimi", "totalprice" : 1234, "depositpaid" : true, "bookingdates" : {"checkin" : "2022-12-16", "checkout" : "2022-12-30"}, "additionalneeds" : "Breakfast"} 
- </msg>
-<msg timestamp="20221216 02:46:17.625" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/booking 
- status=200, reason=OK 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '202', 'Etag': 'W/"ca-vujiColE6DXOkOxETXVl1cOuFn8"', 'Date': 'Fri, 16 Dec 2022 00:46:17 GMT', 'Via': '1.1 vegur'} 
- body={"bookingid":3031,"booking":{"firstname":"Nimi","lastname":"Sukunimi","totalprice":1234,"depositpaid":true,"bookingdates":{"checkin":"2022-12-16","checkout":"2022-12-30"},"additionalneeds":"Breakfast"}} 
- </msg>
-<msg timestamp="20221216 02:46:17.626" level="INFO">${respose} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20221216 02:46:17.116" endtime="20221216 02:46:17.626"/>
-</kw>
-<kw name="Set Global">
-<arg>${bookingID}</arg>
-<arg>bookingid</arg>
-<arg>${respose.json()}</arg>
-<kw name="Get Value From Json" library="JSONLibrary">
-<var>${paramJSON}</var>
-<arg>${jsonData}</arg>
-<arg>${param}</arg>
-<doc>Get Value From JSON using JSONPath</doc>
-<msg timestamp="20221216 02:46:17.645" level="INFO">${paramJSON} = [3031]</msg>
-<status status="PASS" starttime="20221216 02:46:17.628" endtime="20221216 02:46:17.645"/>
-</kw>
-<kw name="Convert Json To String" library="JSONLibrary">
-<var>${paramString}</var>
-<arg>${paramJSON}</arg>
-<doc>Convert JSON object to string</doc>
-<msg timestamp="20221216 02:46:17.645" level="INFO">${paramString} = [3031]</msg>
-<status status="PASS" starttime="20221216 02:46:17.645" endtime="20221216 02:46:17.645"/>
-</kw>
-<kw name="Replace String Using Regexp" library="String">
-<var>${paramValue}</var>
-<arg>${paramString}</arg>
-<arg>\\W</arg>
-<arg>${EMPTY}</arg>
-<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
-<msg timestamp="20221216 02:46:17.646" level="INFO">${paramValue} = 3031</msg>
-<status status="PASS" starttime="20221216 02:46:17.646" endtime="20221216 02:46:17.646"/>
-</kw>
-<if>
-<branch type="IF" condition="'${variable}' == 'token'">
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${token}</arg>
-<arg>${paramValue}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<status status="NOT RUN" starttime="20221216 02:46:17.647" endtime="20221216 02:46:17.647"/>
-</kw>
-<status status="NOT RUN" starttime="20221216 02:46:17.647" endtime="20221216 02:46:17.647"/>
-</branch>
-<branch type="ELSE IF" condition="'${variable}' == 'bookingID'">
-<kw name="Set Global Variable" library="BuiltIn">
-<arg>${bookingID}</arg>
-<arg>${paramValue}</arg>
-<doc>Makes a variable available globally in all tests and suites.</doc>
-<msg timestamp="20221216 02:46:17.648" level="INFO">${bookingID} = 3031</msg>
-<status status="PASS" starttime="20221216 02:46:17.647" endtime="20221216 02:46:17.648"/>
-</kw>
-<status status="PASS" starttime="20221216 02:46:17.647" endtime="20221216 02:46:17.648"/>
-</branch>
-<status status="PASS" starttime="20221216 02:46:17.646" endtime="20221216 02:46:17.648"/>
-</if>
-<status status="PASS" starttime="20221216 02:46:17.627" endtime="20221216 02:46:17.648"/>
-</kw>
-<kw name="Status Should Be" library="RequestsLibrary">
-<arg>200</arg>
-<arg>${respose}</arg>
-<doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20221216 02:46:17.648" endtime="20221216 02:46:17.649"/>
-</kw>
-<doc>POST</doc>
-<status status="PASS" starttime="20221216 02:46:17.113" endtime="20221216 02:46:17.649"/>
-</test>
-<test id="s1-s1-t3" name="Get Booking" line="43">
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${header}</var>
-<arg>Content-Type=application/json</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221216 02:46:17.651" level="INFO">${header} = {'Content-Type': 'application/json'}</msg>
-<status status="PASS" starttime="20221216 02:46:17.650" endtime="20221216 02:46:17.651"/>
-</kw>
-<kw name="Create Session" library="RequestsLibrary">
-<arg>herokuApp</arg>
-<arg>${baseURL}</arg>
-<arg>verify=True</arg>
-<arg>headers=${header}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20221216 02:46:17.652" level="INFO">Creating Session using : alias=herokuApp, url=https://restful-booker.herokuapp.com, headers={'Content-Type': 'application/json'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<status status="PASS" starttime="20221216 02:46:17.652" endtime="20221216 02:46:17.653"/>
-</kw>
-<kw name="GET On Session" library="RequestsLibrary">
-<var>${response}</var>
-<arg>herokuApp</arg>
-<arg>/booking/${bookingID}</arg>
-<doc>Sends a GET request on a previously created HTTP Session.</doc>
-<msg timestamp="20221216 02:46:18.156" level="INFO">GET Request : url=https://restful-booker.herokuapp.com/booking/3031 
- path_url=/booking/3031 
- headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json'} 
- body=None 
- </msg>
-<msg timestamp="20221216 02:46:18.157" level="INFO">GET Response : url=https://restful-booker.herokuapp.com/booking/3031 
- status=200, reason=OK 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '173', 'Etag': 'W/"ad-aVST6C4FYypAQ8kX5Nt5gsuZYj8"', 'Date': 'Fri, 16 Dec 2022 00:46:18 GMT', 'Via': '1.1 vegur'} 
- body={"firstname":"Nimi","lastname":"Sukunimi","totalprice":1234,"depositpaid":true,"bookingdates":{"checkin":"2022-12-16","checkout":"2022-12-30"},"additionalneeds":"Breakfast"} 
- </msg>
-<msg timestamp="20221216 02:46:18.157" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20221216 02:46:17.653" endtime="20221216 02:46:18.157"/>
-</kw>
-<kw name="Status Should Be" library="RequestsLibrary">
-<arg>200</arg>
-<arg>${response}</arg>
-<doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20221216 02:46:18.158" endtime="20221216 02:46:18.159"/>
-</kw>
-<doc>GET</doc>
-<status status="PASS" starttime="20221216 02:46:17.650" endtime="20221216 02:46:18.159"/>
-</test>
-<test id="s1-s1-t4" name="Update Booking" line="50">
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${header}</var>
-<arg>Content-Type=application/json</arg>
-<arg>Accept=application/json</arg>
-<arg>Cookie=token=${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221216 02:46:18.161" level="INFO">${header} = {'Content-Type': 'application/json', 'Accept': 'application/json', 'Cookie': 'token=911a682a7a2f842'}</msg>
-<status status="PASS" starttime="20221216 02:46:18.160" endtime="20221216 02:46:18.161"/>
-</kw>
-<kw name="Set Variable" library="BuiltIn">
-<var>${body}</var>
-<arg>{"firstname" : "Uusi nimi", "lastname" : "Uusi sukunimi", "totalprice" : 111, "depositpaid" : true, "bookingdates" : {"checkin" : "2022-12-24", "checkout" : "2022-012-31"},"additionalneeds" : "Breakfast"}</arg>
-<doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20221216 02:46:18.162" level="INFO">${body} = {"firstname" : "Uusi nimi", "lastname" : "Uusi sukunimi", "totalprice" : 111, "depositpaid" : true, "bookingdates" : {"checkin" : "2022-12-24", "checkout" : "2022-012-31"},"additionalneeds" : "Breakfa...</msg>
-<status status="PASS" starttime="20221216 02:46:18.161" endtime="20221216 02:46:18.162"/>
-</kw>
-<kw name="Create Session" library="RequestsLibrary">
-<arg>herokuApp</arg>
-<arg>${baseURL}</arg>
-<arg>verify=True</arg>
-<arg>headers=${header}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20221216 02:46:18.163" level="INFO">Creating Session using : alias=herokuApp, url=https://restful-booker.herokuapp.com, headers={'Content-Type': 'application/json', 'Accept': 'application/json', 'Cookie': 'token=911a682a7a2f842'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<status status="PASS" starttime="20221216 02:46:18.162" endtime="20221216 02:46:18.164"/>
-</kw>
-<kw name="PUT On Session" library="RequestsLibrary">
-<var>${response}</var>
-<arg>herokuApp</arg>
-<arg>/booking/${bookingID}</arg>
-<arg>data=${body}</arg>
-<doc>Sends a PUT request on a previously created HTTP Session.</doc>
-<msg timestamp="20221216 02:46:18.687" level="INFO">PUT Request : url=https://restful-booker.herokuapp.com/booking/3031 
- path_url=/booking/3031 
- headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': 'application/json', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=911a682a7a2f842', 'Content-Length': '204'} 
- body={"firstname" : "Uusi nimi", "lastname" : "Uusi sukunimi", "totalprice" : 111, "depositpaid" : true, "bookingdates" : {"checkin" : "2022-12-24", "checkout" : "2022-012-31"},"additionalneeds" : "Breakfast"} 
- </msg>
-<msg timestamp="20221216 02:46:18.687" level="INFO">PUT Response : url=https://restful-booker.herokuapp.com/booking/3031 
- status=200, reason=OK 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '182', 'Etag': 'W/"b6-bt6vQtXALQanO3il2gGh0wbCmsc"', 'Date': 'Fri, 16 Dec 2022 00:46:18 GMT', 'Via': '1.1 vegur'} 
- body={"firstname":"Uusi nimi","lastname":"Uusi sukunimi","totalprice":111,"depositpaid":true,"bookingdates":{"checkin":"2022-12-24","checkout":"2022-12-31"},"additionalneeds":"Breakfast"} 
- </msg>
-<msg timestamp="20221216 02:46:18.688" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20221216 02:46:18.164" endtime="20221216 02:46:18.688"/>
-</kw>
-<kw name="Status Should Be" library="RequestsLibrary">
-<arg>200</arg>
-<arg>${response}</arg>
-<doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20221216 02:46:18.688" endtime="20221216 02:46:18.689"/>
-</kw>
-<doc>PUT</doc>
-<status status="PASS" starttime="20221216 02:46:18.159" endtime="20221216 02:46:18.689"/>
-</test>
-<test id="s1-s1-t5" name="Delete Booking" line="58">
-<kw name="Create Dictionary" library="BuiltIn">
-<var>${header}</var>
-<arg>Content-Type=application/json</arg>
-<arg>Cookie=token=${token}</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<msg timestamp="20221216 02:46:18.692" level="INFO">${header} = {'Content-Type': 'application/json', 'Cookie': 'token=911a682a7a2f842'}</msg>
-<status status="PASS" starttime="20221216 02:46:18.691" endtime="20221216 02:46:18.692"/>
-</kw>
-<kw name="Create Session" library="RequestsLibrary">
-<arg>herokuApp</arg>
-<arg>${baseURL}</arg>
-<arg>verify=True</arg>
-<arg>headers=${header}</arg>
-<doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20221216 02:46:18.693" level="INFO">Creating Session using : alias=herokuApp, url=https://restful-booker.herokuapp.com, headers={'Content-Type': 'application/json', 'Cookie': 'token=911a682a7a2f842'},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
-<status status="PASS" starttime="20221216 02:46:18.692" endtime="20221216 02:46:18.693"/>
-</kw>
-<kw name="DELETE On Session" library="RequestsLibrary">
-<var>${response}</var>
-<arg>herokuApp</arg>
-<arg>/booking/${bookingID}</arg>
-<doc>Sends a DELETE request on a previously created HTTP Session.</doc>
-<msg timestamp="20221216 02:46:19.197" level="INFO">DELETE Request : url=https://restful-booker.herokuapp.com/booking/3031 
- path_url=/booking/3031 
- headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Cookie': 'token=911a682a7a2f842', 'Content-Length': '0'} 
- body=None 
- </msg>
-<msg timestamp="20221216 02:46:19.197" level="INFO">DELETE Response : url=https://restful-booker.herokuapp.com/booking/3031 
- status=201, reason=Created 
- headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'text/plain; charset=utf-8', 'Content-Length': '7', 'Etag': 'W/"7-rM9AyJuqT6iOan/xHh+AW+7K/T8"', 'Date': 'Fri, 16 Dec 2022 00:46:19 GMT', 'Via': '1.1 vegur'} 
- body=Created 
- </msg>
-<msg timestamp="20221216 02:46:19.197" level="INFO">${response} = &lt;Response [201]&gt;</msg>
-<status status="PASS" starttime="20221216 02:46:18.694" endtime="20221216 02:46:19.197"/>
-</kw>
-<kw name="Status Should Be" library="RequestsLibrary">
-<arg>201</arg>
-<arg>${response}</arg>
-<doc>Fails if response status code is different than the expected.</doc>
-<status status="PASS" starttime="20221216 02:46:19.198" endtime="20221216 02:46:19.198"/>
-</kw>
-<doc>DELETE</doc>
-<status status="PASS" starttime="20221216 02:46:18.690" endtime="20221216 02:46:19.198"/>
+<status status="PASS" starttime="20230103 14:09:32.512" endtime="20230103 14:09:33.086"/>
 </test>
 <doc>HerokuAPP API Tests</doc>
-<status status="PASS" starttime="20221216 02:46:16.307" endtime="20221216 02:46:19.199"/>
+<status status="PASS" starttime="20230103 14:09:32.310" endtime="20230103 14:09:33.088"/>
 </suite>
-<status status="PASS" starttime="20221216 02:46:16.287" endtime="20221216 02:46:19.201"/>
+<status status="PASS" starttime="20230103 14:09:32.287" endtime="20230103 14:09:33.090"/>
 </suite>
 <statistics>
 <total>
-<stat pass="5" fail="0" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="5" fail="0" skip="0" id="s1" name="Robotframework-Api-Testing">Robotframework-Api-Testing</stat>
-<stat pass="5" fail="0" skip="0" id="s1-s1" name="HerokuApp">Robotframework-Api-Testing.HerokuApp</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robotframework-Api-Testing">Robotframework-Api-Testing</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="HerokuApp">Robotframework-Api-Testing.HerokuApp</stat>
 </suite>
 </statistics>
 <errors>

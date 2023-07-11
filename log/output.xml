@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.11.0 on darwin)" generated="20230103 14:07:28.873" rpa="false" schemaversion="3">
+<suite id="s1" name="HerokuApp" source="/Users/yusufrenkoglu/Library/Mobile Documents/com~apple~CloudDocs/Projects/IdeaProjects/robotframework-api-testing/HerokuApp.robot">
+<test id="s1-t1" name="Create Token" line="26">
+<kw name="Create Dictionary" library="BuiltIn">
+<var>${body}</var>
+<arg>username=admin</arg>
+<arg>password=password123</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<msg timestamp="20230103 14:07:29.096" level="INFO">${body} = {'username': 'admin', 'password': 'password123'}</msg>
+<status status="PASS" starttime="20230103 14:07:29.096" endtime="20230103 14:07:29.097"/>
+</kw>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>herokuApp</arg>
+<arg>${baseURL}</arg>
+<arg>verify=True</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20230103 14:07:29.098" level="INFO">Creating Session using : alias=herokuApp, url=https://restful-booker.herokuapp.com, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=True,                     debug=0 </msg>
+<status status="PASS" starttime="20230103 14:07:29.098" endtime="20230103 14:07:29.099"/>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<var>${response}</var>
+<arg>herokuApp</arg>
+<arg>/auth</arg>
+<arg>data=${body}</arg>
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<msg timestamp="20230103 14:07:29.616" level="INFO">POST Request : url=https://restful-booker.herokuapp.com/auth 
+ path_url=/auth 
+ headers={'User-Agent': 'python-requests/2.28.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '35', 'Content-Type': 'application/x-www-form-urlencoded'} 
+ body=username=admin&amp;password=password123 
+ </msg>
+<msg timestamp="20230103 14:07:29.616" level="INFO">POST Response : url=https://restful-booker.herokuapp.com/auth 
+ status=200, reason=OK 
+ headers={'Server': 'Cowboy', 'Connection': 'keep-alive', 'X-Powered-By': 'Express', 'Content-Type': 'application/json; charset=utf-8', 'Content-Length': '27', 'Etag': 'W/"1b-oNjMcHM6lII5y+dAT97L1uKO8VQ"', 'Date': 'Tue, 03 Jan 2023 12:07:29 GMT', 'Via': '1.1 vegur'} 
+ body={"token":"61dc35685f36d90"} 
+ </msg>
+<msg timestamp="20230103 14:07:29.616" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20230103 14:07:29.099" endtime="20230103 14:07:29.616"/>
+</kw>
+<kw name="Set Global">
+<arg>${token}</arg>
+<arg>token</arg>
+<arg>${response.json()}</arg>
+<kw name="Get Value From Json" library="JSONLibrary">
+<var>${paramJSON}</var>
+<arg>${jsonData}</arg>
+<arg>${param}</arg>
+<doc>Get Value From JSON using JSONPath</doc>
+<msg timestamp="20230103 14:07:29.638" level="INFO">${paramJSON} = ['61dc35685f36d90']</msg>
+<status status="PASS" starttime="20230103 14:07:29.617" endtime="20230103 14:07:29.638"/>
+</kw>
+<kw name="Convert Json To String" library="JSONLibrary">
+<var>${paramString}</var>
+<arg>${paramJSON}</arg>
+<doc>Convert JSON object to string</doc>
+<msg timestamp="20230103 14:07:29.639" level="INFO">${paramString} = ["61dc35685f36d90"]</msg>
+<status status="PASS" starttime="20230103 14:07:29.638" endtime="20230103 14:07:29.639"/>
+</kw>
+<kw name="Replace String Using Regexp" library="String">
+<var>${paramValue}</var>
+<arg>${paramString}</arg>
+<arg>\\W</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``pattern`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230103 14:07:29.639" level="INFO">${paramValue} = 61dc35685f36d90</msg>
+<status status="PASS" starttime="20230103 14:07:29.639" endtime="20230103 14:07:29.640"/>
+</kw>
+<if>
+<branch type="IF" condition="'${variable}' == 'token'">
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${token}</arg>
+<arg>${paramValue}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<msg timestamp="20230103 14:07:29.640" level="INFO">${token} = 61dc35685f36d90</msg>
+<status status="PASS" starttime="20230103 14:07:29.640" endtime="20230103 14:07:29.640"/>
+</kw>
+<status status="PASS" starttime="20230103 14:07:29.640" endtime="20230103 14:07:29.640"/>
+</branch>
+<branch type="ELSE IF" condition="'${variable}' == 'bookingID'">
+<kw name="Set Global Variable" library="BuiltIn">
+<arg>${bookingID}</arg>
+<arg>${paramValue}</arg>
+<doc>Makes a variable available globally in all tests and suites.</doc>
+<status status="NOT RUN" starttime="20230103 14:07:29.641" endtime="20230103 14:07:29.641"/>
+</kw>
+<status status="NOT RUN" starttime="20230103 14:07:29.641" endtime="20230103 14:07:29.641"/>
+</branch>
+<status status="PASS" starttime="20230103 14:07:29.640" endtime="20230103 14:07:29.641"/>
+</if>
+<status status="PASS" starttime="20230103 14:07:29.616" endtime="20230103 14:07:29.641"/>
+</kw>
+<kw name="Status Should Be" library="RequestsLibrary">
+<arg>200</arg>
+<arg>${response}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" starttime="20230103 14:07:29.641" endtime="20230103 14:07:29.642"/>
+</kw>
+<doc>POST</doc>
+<status status="PASS" starttime="20230103 14:07:29.095" endtime="20230103 14:07:29.642"/>
+</test>
+<doc>HerokuAPP API Tests</doc>
+<status status="PASS" starttime="20230103 14:07:28.875" endtime="20230103 14:07:29.642"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="HerokuApp">HerokuApp</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
